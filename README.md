@@ -29,6 +29,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Others Commands
 
 Create Component: ng g c <NAME>
+  
 Create Service: ng g s <NAME>
+
 Install Bootstrap: npm install bootstrap --save
 
