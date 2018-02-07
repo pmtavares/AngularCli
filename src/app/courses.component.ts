@@ -19,6 +19,7 @@ import { CoursesService } from './courses.service';
       <button class="btn" [class.active]="isActive" (click)="onButtonClick($event)">Active</button>
     </div>
     <button [style.backgroundColor]="isActive ? 'blue': 'white'">Active</button>
+  <input (keyup.enter)="onKeyUp()"/>
     `
   
 })
@@ -48,6 +49,10 @@ export class CoursesComponent {
 
   getTitle() {
     return this.title;
+  }
+
+  onKeyUp() {
+    alert("Key enter was pressed!");
   }
 
 }
