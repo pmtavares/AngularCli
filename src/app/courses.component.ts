@@ -19,8 +19,17 @@ import { CoursesService } from './courses.service';
       <button class="btn" [class.active]="isActive" (click)="onButtonClick($event)">Active</button>
     </div>
     <button [style.backgroundColor]="isActive ? 'blue': 'white'">Active</button>
-  <input (keyup.enter)="onKeyUp()"/>
-    `
+  <input [(ngModel)]="email" (keyup.enter)="onKeyUp()"/><br/>
+<hr/>
+<h3>Pipes</h3>
+{{course.title | uppercase}}<br/>
+  {{course.rating | number:'1.2-2'}}<br/>
+  {{course.price | currency:'EUR'}}<br/>
+  {{course.releaseDate | date:'shortDate'}}<br/>
+<hr/>
+<h4>Custom Pipes</h4>
+{{ longText | summary:40 }}
+`
   
 })
 export class CoursesComponent {
@@ -50,9 +59,19 @@ export class CoursesComponent {
   getTitle() {
     return this.title;
   }
-
+  email = "pedro@pedro.com";
   onKeyUp() {
     alert("Key enter was pressed!");
+    console.log(this.email);
   }
+
+  course = {
+    title: "The complete angular",
+    rating: 4.3256,
+    price: 150.00,
+    releaseDate: new Date(2018,9,2)
+
+  }
+  longText = "Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator."
 
 }
