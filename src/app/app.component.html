@@ -4,7 +4,9 @@
     Welcome to {{ title }}!
   </h1>
  </div>
-
+<img [src]="imageUrl" />
+<button (click)="onClick()">Click</button>
+<favorite [isFavorite]="post.isFavorite"></favorite>
 <ul>
   <courses></courses>
 </ul>
@@ -12,4 +14,8 @@
 <ul>
   <authors></authors>
 </ul>
+
+
+
+
 

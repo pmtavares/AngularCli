@@ -8,7 +8,7 @@ import { CoursesService } from './courses.service';
       <ul>
         <li *ngFor="let course of courses">{{ course }}</li>
       </ul>
-      <img src="{{ imageUrl}}"/>
+      
       <table>
         <tr>
           <td [attr.colspan]="25">table1</td>
@@ -35,7 +35,7 @@ import { CoursesService } from './courses.service';
 export class CoursesComponent {
   title = "List of courses";
   courses;
-  imageUrl = "https://loremflickr.com/200/230";
+  
   isActive = true;
   constructor(service: CoursesService) { //in order for the dependency injection to work, we need to declare in the app module, providers array
     
