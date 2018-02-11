@@ -6,7 +6,7 @@
  </div>
 <img [src]="imageUrl" />
 <button (click)="onClick()">Click</button>
-<favorite [isFavorite]="post.isFavorite" (change)="onFavoriteChanged()"></favorite>
+<favorite [isFavorite]="post.isFavorite" (change)="onFavoriteChanged($event)"></favorite>
 <ul>
   <courses></courses>
 </ul>
