@@ -2,9 +2,7 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\app",
-    "\\src\\app\\authors",
-    "\\src\\app\\favorite"
+    "\\src\\app"
   ],
   "PreviewInSolutionExplorer": false
 }

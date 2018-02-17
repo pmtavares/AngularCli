@@ -20,10 +20,19 @@
 </ul>
 
 <ul>
-  <authors></authors>
+  <authors>
+  </authors>
+ 
 </ul>
-
-
+<div *ngIf="newCourses.length > 0; then coursesList else noCourses">
+ 
+</div>
+<ng-template #coursesList>
+  List of New courses
+</ng-template>
+<ng-template #noCourses>
+  No new courses
+</ng-template>
 
 
 
