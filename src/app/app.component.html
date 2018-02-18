@@ -33,6 +33,28 @@
 <ng-template #noCourses>
   No new courses
 </ng-template>
+<div [hidden]="newCourses.length > 0">
+  Hidden attribute
+</div>
 
+<ul class="nav nav-pills">
+  <li [class.active]="viewMode =='map'"><a (click)="viewMode = 'map'">Map View</a></li>
+  <li [class.active]="viewMode =='list'" ><a (click)="viewMode = 'list'">List View</a></li>
+</ul>
+<div [ngSwitch]="viewMode">
+  <div *ngSwitchCase="'map'">Map View Content</div>
+  <div *ngSwitchCase="'list'">List View content</div>
+  <div *ngSwitchDefault>Default</div>
+</div>
+<hr/>
+<ul>
+  <li *ngFor="let course of otherCourses; even as isEven">
+    {{i}} - {{course.name}} <span *ngIf="isEven">(EVEN)</span>
+    <button (click)="onRemove(course)">Remove</button>
+
+  </li>
+</ul>
+<button (click)="onAdd()">Add</button>
+<hr />
 
 

@@ -9,7 +9,7 @@ import { FavoriteChangedEventArgs } from './favorite/favorite.component';
 export class AppComponent {
   title = 'My Fist Angular App';
   imageUrl = "https://loremflickr.com/200/230";
- 
+
   onClick() {
     alert("clicked");
   }
@@ -26,8 +26,22 @@ export class AppComponent {
   }
 
   newCourses = [];
-  
+  viewMode = "";
+  otherCourses = [
+    { id: 1, name: 'course1' },
+    { id: 2, name: 'course2' },
+    { id: 3, name: 'course3' }
+  ];
+
+  onAdd() {
+    this.otherCourses.push({ id: 4, name: "course4" });
+  }
+
+  onRemove(course) {
+    //let index = this.otherCourses.indexOf(course);
+    //this.otherCourses.splice(index, 1);
+    course.name = 'updated'
+  }
+
 }
-
-
 
