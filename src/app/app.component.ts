@@ -43,5 +43,15 @@ export class AppComponent {
     course.name = 'updated'
   }
 
+  canSave = true;
+
+  task = {
+    title: 'Review Applications',
+    assignee: {
+      name: 'Pedro Tavares'
+    }
+
+  }
+
 }
 

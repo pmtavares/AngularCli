@@ -57,4 +57,17 @@
 <button (click)="onAdd()">Add</button>
 <hr />
 
+<button
+        [ngStyle]="{
+          'backgroundColor':canSave? 'blue':'gray',
+          'color':canSave?'white': 'black',
+          'fontWeight': canSave?'bold': 'normal'
+        }"
+        >
+  Save
+</button>
 
+<hr />
+<span>{{ task.assignee?.name }}</span>
+
+<hr />
