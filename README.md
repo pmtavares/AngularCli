@@ -32,5 +32,7 @@ Create Component: ng g c <NAME>
   
 Create Service: ng g s <NAME>
 
+Create Directive: ng g d <NAME>
+
 Install Bootstrap: npm install bootstrap --save
 

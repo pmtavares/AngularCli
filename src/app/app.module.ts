@@ -12,6 +12,7 @@ import { AuthorsService } from './authors/authors.service';
 import { SummaryPipe } from './summary.pipe';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { PanelComponent } from './panel/panel.component';
+import { InputFormatDirective } from './input-format.directive';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { PanelComponent } from './panel/panel.component';
     AuthorsComponent,
     SummaryPipe,
     FavoriteComponent,
-    PanelComponent
+    PanelComponent,
+    InputFormatDirective
   ],
   imports: [
     BrowserModule,
