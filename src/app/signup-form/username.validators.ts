@@ -7,4 +7,14 @@ export class UsernameValidators {
     }
     return null;
   };
+
+  static shouldbeUnique(control: AbstractControl): ValidationErrors | null
+  {
+    setTimeout(() => { console.log('ok') }, 200);
+
+    if (control.value === 'pedro') {
+      return { shouldBeUnique: true}
+    }
+    return null;
+  }
 }
