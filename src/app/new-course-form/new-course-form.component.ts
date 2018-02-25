@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormGroup, FormControl } from '@angular/forms';
+import { FormArray, FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'new-course-form',
@@ -23,6 +23,17 @@ export class NewCourseFormComponent {
   removeTopic(topic: FormControl) {
     let index = this.topics.controls.indexOf(topic);
     this.topics.removeAt(index);
+  }
+
+  constructor(fb: FormBuilder) {
+    this.form = fb.group({
+      name: ['', Validators.required],
+      contact: fb.group({
+        email: [],
+        phone: []
+      }),
+      topics: fb.array([])
+    });
   }
 
 }
