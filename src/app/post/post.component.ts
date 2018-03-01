@@ -26,5 +26,15 @@ export class PostComponent  {
     });
   }
 
+  updatePost(post) {
+    //this.http.put(this.url, JSON.stringify(post));
+    this.http.patch(this.url + "/"+ post.id, JSON.stringify({ title: "Title Test" }))
+      .subscribe(response => {
+        console.log(response.json());
+      });
+
+
+  }
+
 
 }
