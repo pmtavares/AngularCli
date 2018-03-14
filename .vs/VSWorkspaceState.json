@@ -1,9 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\src",
     "\\src\\app",
-    "\\src\\app\\new-course-form"
+    "\\src\\app\\post"
   ],
   "PreviewInSolutionExplorer": false
 }
