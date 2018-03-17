@@ -22,11 +22,7 @@ export class PostComponent implements OnInit{
     this.service.getPosts().subscribe(
       response => {
       this.posts = response.json();
-    },
-      error => {
-        alert("An unexpected error ocurred");
-        console.log(error);
-      });
+    });
   }
 
 
@@ -43,12 +39,8 @@ export class PostComponent implements OnInit{
         if (error instanceof BadInput) {
           //this.form.setErrors(error.json()); COMMENTED BECAUSE WE DONT HAVE A FORM
           alert("Not found error");
-        }
-        else {
-          alert("An unexpected error ocurred for delete post");
-          console.log(error);
-        }
-       
+        } else throw error; //will handle by a global error handler
+
 
       });
   }
@@ -59,11 +51,6 @@ export class PostComponent implements OnInit{
     this.service.updatePost(post).subscribe(
       response => {
         console.log(response.json());
-      },
-      error => {
-        alert("An unexpected error ocurred for update post");
-        console.log(error);
-
       });
    
 
@@ -77,15 +64,10 @@ export class PostComponent implements OnInit{
       (error: AppError) => {
         if (error instanceof NotFoundError) {
           alert("This item has already been deleted");
-        }
-        else {
-          alert("An unexpected error ocurred for delete post");
-          console.log(error);
-        }
+        } else throw error;
 
-      
 
-    });
+      });
   }
 
 }
