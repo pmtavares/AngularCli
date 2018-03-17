@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../services/post.service';
+import { AppError } from '../common/app-error';
+import { NotFoundError } from '../common/not-found-error';
+import { BadInput } from '../common/bad-input';
 
 
 @Component({
@@ -36,9 +39,10 @@ export class PostComponent implements OnInit{
       post['id'] = response.json().id;
       this.posts.splice(0, 0, post);
     },
-      (error: Response) => {
-        if (error.status === 404) {
+      (error: AppError) => {
+        if (error instanceof BadInput) {
           //this.form.setErrors(error.json()); COMMENTED BECAUSE WE DONT HAVE A FORM
+          alert("Not found error");
         }
         else {
           alert("An unexpected error ocurred for delete post");
@@ -70,8 +74,8 @@ export class PostComponent implements OnInit{
         let index = this.posts.indexOf(post);
         this.posts.splice(index, 1);
       },
-      (error: Response) => {
-        if (error.status === 404) {
+      (error: AppError) => {
+        if (error instanceof NotFoundError) {
           alert("This item has already been deleted");
         }
         else {
