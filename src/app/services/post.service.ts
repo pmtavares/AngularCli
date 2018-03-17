@@ -1,18 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import 'rxjs/add/operator/catch';
-import { Observable } from 'rxjs/Observable';
-import { AppError } from '../common/app-error';
-import { NotFoundError } from '../common/not-found-error';
-import { BadInput } from '../common/bad-input';
-import 'rxjs/add/observable/throw';
+import { DataService } from '../common/data.services';
 
 @Injectable()
-export class PostService {
-  private url = "http://jsonplaceholder.typicode.com/posts";
+export class PostService extends DataService{
+  //private url = "http://jsonplaceholder.typicode.com/posts";
 
-  constructor(private http: Http) { }
+  constructor(http: Http) {
+    super("http://jsonplaceholder.typicode.com/posts", http);
 
+  }
+
+
+
+
+
+
+  /*
   getPosts() {
     return this.http.get(this.url).catch(this.handleError);
   }
@@ -43,6 +47,6 @@ export class PostService {
       return Observable.throw(new BadInput(error.json()));
     }
     return Observable.throw(new AppError(error));
-  }
+  }*/
 
 }

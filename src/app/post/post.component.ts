@@ -19,7 +19,7 @@ export class PostComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.service.getPosts().subscribe(
+    this.service.getAll().subscribe(
       response => {
       this.posts = response.json();
     });
@@ -29,7 +29,7 @@ export class PostComponent implements OnInit{
   createPost(input: HTMLInputElement) {
     let post = { title: input.value };
 
-    this.service.createPost(post).subscribe(
+    this.service.create(post).subscribe(
       response => {
       console.log(response.json());
       post['id'] = response.json().id;
@@ -48,7 +48,7 @@ export class PostComponent implements OnInit{
   updatePost(post) {
     //this.http.put(this.url, JSON.stringify(post));
     
-    this.service.updatePost(post).subscribe(
+    this.service.update(post).subscribe(
       response => {
         console.log(response.json());
       });
@@ -56,7 +56,7 @@ export class PostComponent implements OnInit{
 
   }
   deletePost(post) {
-    this.service.deletePost(post.id).subscribe(
+    this.service.delete(post.id).subscribe(
       response => {
         let index = this.posts.indexOf(post);
         this.posts.splice(index, 1);
@@ -64,10 +64,12 @@ export class PostComponent implements OnInit{
       (error: AppError) => {
         if (error instanceof NotFoundError) {
           alert("This item has already been deleted");
-        } else throw error;
+        }
+        else throw error;
 
+      
 
-      });
+    });
   }
 
 }
