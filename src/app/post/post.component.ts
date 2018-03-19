@@ -19,24 +19,24 @@ export class PostComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.service.getAll().subscribe(
-      response => {
-      this.posts = response.json();
-    });
-  }
+    this.service.getAll()
+      .subscribe(posts => this.posts = posts)
+   }
 
 
   createPost(input: HTMLInputElement) {
     let post = { title: input.value };
+    this.posts.splice(0, 0, post);
 
+    input.value = "";
     this.service.create(post).subscribe(
-      response => {
-      console.log(response.json());
-      post['id'] = response.json().id;
-      this.posts.splice(0, 0, post);
+      newPost => {
+        post['id'] = newPost.id;
+      
     },
       (error: AppError) => {
         if (error instanceof BadInput) {
+          this.posts.splice(0, 1);
           //this.form.setErrors(error.json()); COMMENTED BECAUSE WE DONT HAVE A FORM
           alert("Not found error");
         } else throw error; //will handle by a global error handler
@@ -49,15 +49,15 @@ export class PostComponent implements OnInit{
     //this.http.put(this.url, JSON.stringify(post));
     
     this.service.update(post).subscribe(
-      response => {
-        console.log(response.json());
+      updatedPost => {
+        console.log(updatedPost);
       });
    
 
   }
   deletePost(post) {
     this.service.delete(post.id).subscribe(
-      response => {
+      () => {
         let index = this.posts.indexOf(post);
         this.posts.splice(index, 1);
       },

@@ -1,4 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<!-- Commented bellow in order to do routers
+  
+
 <div style="text-align:center">
   <bootstrap-panel>
     <ng-container class="heading">Heading</ng-container>
@@ -9,7 +12,7 @@
   </bootstrap-panel>
 
   <h1>
-    Welcome to {{ title }}!
+    Welcome to {{ //title }}!
   </h1>
  </div>
 <img [src]="imageUrl" />
@@ -49,7 +52,7 @@
 <hr/>
 <ul>
   <li *ngFor="let course of otherCourses; even as isEven">
-    {{i}} - {{course.name}} <span *ngIf="isEven">(EVEN)</span>
+    {{//i}} - {{//course.name}} <span *ngIf="isEven">(EVEN)</span>
     <button (click)="onRemove(course)">Remove</button>
 
   </li>
@@ -68,7 +71,7 @@
 </button>
 
 <hr />
-<span>{{ task.assignee?.name }}</span>
+<span>{{ //task.assignee?.name }}</span>
 
 <hr />
 
@@ -84,3 +87,8 @@
 <new-course-form></new-course-form>
 <hr/>
 <post></post>
+<hr />
+<hr />
+  -->
+<navbar></navbar>
+<router-outlet></router-outlet>
